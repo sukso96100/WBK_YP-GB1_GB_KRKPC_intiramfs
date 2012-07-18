@@ -712,9 +712,14 @@ service DR-deamon /system/bin/drexe
     user root
     group system radio inet net_raw     
 
-#Support init.d | Users must install busybox in /system/bin to use init.d function
-service userinit /system/bin/busybox run-parts /system/etc/init.d	
-    oneshot    
+##init.d User Shell Scripts Support
+
+#Set Permisson
+chmod 644 /sbin/userinit.sh
+
+#Excute 'userinit.sh'
+service userinit /sbin/userinit.sh
+    oneshot
 
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
     socket zygote stream 666
