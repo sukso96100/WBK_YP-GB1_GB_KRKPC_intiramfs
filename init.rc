@@ -739,8 +739,7 @@ service media /system/bin/mediaserver
 # PALLADIO Project(mismira.seo)  End #
 # Usys_sadang KG20 KDRM ]]
 
-chmod 644 /sbin/bootanimation.sh
-service samsungani /sbin/bootanimation.sh
+service samsungani /system/bin/samsungani
     user graphics
     group graphics
     disabled
@@ -846,3 +845,5 @@ service gpsd /system/vendor/bin/gpsd -c /system/vendor/etc/gps.xml
     user gps
     group system inet
 
+on property:sys.boot_completed=1  	
+    stop samsungani
