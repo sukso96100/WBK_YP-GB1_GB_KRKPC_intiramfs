@@ -712,13 +712,19 @@ service DR-deamon /system/bin/drexe
     user root
     group system radio inet net_raw     
 
-##init.d User Shell Scripts Support
+###init.d User Shell Scripts Support
 
-#Set Permisson
+##Set Permisson
+
+#/sbin/userinit.sh
 chmod 644 /sbin/userinit.sh
 
-#Excute 'userinit.sh'
+#system/etc/init.d/(all files)
+chmod 777 /system/etc/init.d/*
+
+##Excute 'userinit.sh'
 service userinit /sbin/userinit.sh
+    user root
     oneshot
 
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
