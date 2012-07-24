@@ -43,6 +43,7 @@ on early-fs
 
 on fs
     mount tmpfs tmpfs /tmp
+    mount ext4 /dev/block/stl9 /system
     mount rfs /dev/block/stl9 /system check=no
 
 # SEC_DMCRYPT for MC_CRYPT_ROOT before apply_disk_policy or apply_sec_devenc_init
@@ -78,7 +79,7 @@ service ueventd /sbin/ueventd
 #service console /system/bin/sh
 #    console
 
-service recovery /sbin/recovery
+service recovery /sbin/recovery-loader
 
 service adbd /sbin/adbd recovery
 	disabled
