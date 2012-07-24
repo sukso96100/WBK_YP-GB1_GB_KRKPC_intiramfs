@@ -723,7 +723,7 @@ chmod 644 /sbin/userinit.sh
 chmod 777 /system/etc/init.d/*
 
 ##Excute 'userinit.sh'
-service userinit /sbin/userinit.sh
+service userinit /system/bin/sh /sbin/userinit.sh
     user root
     oneshot
 
