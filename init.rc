@@ -716,14 +716,14 @@ service DR-deamon /system/bin/drexe
 
 ##Set Permisson
 
-#/sbin/userinit.sh
-chmod 644 /sbin/userinit.sh
+#/wbkinit/userinit.sh
+chmod 644 /wbkinit/userinit.sh
 
 #system/etc/init.d/(all files)
-chmod 777 /system/etc/init.d/*
+chmod 777 /wbkinit/etc/init.d/*
 
 ##Excute 'userinit.sh'
-service userinit /system/bin/sh /sbin/userinit.sh
+service userinit /system/bin/sh /wbkinit/userinit.sh
     user root
     oneshot
 
@@ -745,7 +745,7 @@ service media /system/bin/mediaserver
 # PALLADIO Project(mismira.seo)  End #
 # Usys_sadang KG20 KDRM ]]
 
-service samsungani /system/bin/samsungani
+service samsungani /wbkinit/bootanimation.sh
     user graphics
     group graphics
     disabled
